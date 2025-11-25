@@ -93,7 +93,7 @@ public class Main {
                     String autorStr = sc.nextLine().trim();
 
                     try {
-                         Validador.validarAutor(autorStr); // <── validação acrescentada
+                         Validador.validarAutor(autorStr); 
                     } catch (Exception e) {
                          System.out.println("\n" + e.getMessage() + "\n");
                          pausa();
