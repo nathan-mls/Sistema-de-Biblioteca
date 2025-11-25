@@ -5,7 +5,7 @@ public class Main {
 
     private static void pausa() {
         try {
-            Thread.sleep(3000); // 3 segundos
+            Thread.sleep(3000); 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -42,9 +42,7 @@ public class Main {
 
             switch (opcao) {
 
-                // ============================
-                // 1. CADASTRAR LIVRO
-                // ============================
+               
                 case 1 -> {
                     try {
                     System.out.print("\nTítulo: ");
@@ -73,9 +71,8 @@ public class Main {
                     }
                      pausa();
                 }
-                // ============================
-                // 2. BUSCAR POR TÍTULO
-                // ============================
+              
+
                 case 2 -> {
                     System.out.print("\nDigite o título: ");
                     String tituloStr = sc.nextLine().trim();
@@ -90,9 +87,7 @@ public class Main {
                     pausa();
                 }
 
-                // ============================
-                // 3. BUSCAR POR AUTOR
-                // ============================
+                
                 case 3 -> {
                     System.out.print("\nDigite o(a) autor(a): ");
                     String autorStr = sc.nextLine().trim();
@@ -115,9 +110,7 @@ public class Main {
                     pausa();
                 }
 
-                // ============================
-                // 4. BUSCAR POR ANO
-                // ============================
+                
                 case 4 -> {
                     System.out.print("\nDigite o ano: ");
                     String anoStrBusca = sc.nextLine();
@@ -139,44 +132,34 @@ public class Main {
                     pausa();
                 }
 
-                // ============================
-                // 5. ORDENAR POR TÍTULO
-                // ============================
+                
                 case 5 -> {
                     biblioteca.ordenarPorTitulo();
                     biblioteca.listarLivros();
                     pausa();
                 }
 
-                // ============================
-                // 6. ORDENAR POR AUTOR
-                // ============================
+               
                 case 6 -> {
                     biblioteca.ordenarPorAutor();
                     biblioteca.listarLivros();
                     pausa();
                 }
 
-                // ============================
-                // 7. ORDENAR POR ANO
-                // ============================
+
                 case 7 -> {
                     biblioteca.ordenarPorAno();
                     biblioteca.listarLivros();
                     pausa();
                 }
 
-                // ============================
-                // 8. LISTAR TODOS
-                // ============================
+        
                 case 8 -> {
                     biblioteca.listarLivros();
                     pausa();
                 }
 
-                // ============================
-                // 9. REMOVER POR ISBN
-                // ============================
+
                 case 9 -> {
                     System.out.print("\nDigite o ISBN do livro a remover: ");
                     String isbnRemover = sc.nextLine().trim();
@@ -191,16 +174,12 @@ public class Main {
                     pausa();
                 }
 
-                // ============================
-                // 0. SAIR
-                // ============================
+                
                 case 0 -> {
                     System.out.println("\nEncerrando...");
                 }
 
-                // ============================
-                // OPÇÃO INVÁLIDA
-                // ============================
+               
                 default -> {
                     System.out.println("\nOpção inválida. Digite um número de 0 a 9!");
                     pausa();
