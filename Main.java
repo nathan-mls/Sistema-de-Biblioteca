@@ -49,19 +49,20 @@ public class Main {
                     String titulo = sc.nextLine();
                     Validador.validarTitulo(titulo);
 
-                    System.out.print("Autor: ");
-                    String autor = sc.nextLine();
-                    Validador.validarAutor(autor);
+                    System.out.print("Autor(a):");
+                    String autorStr = sc.nextLine().trim().replaceAll("\\s+", " ");
+                    Validador.validarAutor(autorStr);
 
                     System.out.print("Ano: ");
-                    int ano = Integer.parseInt(sc.nextLine());
-                    Validador.validarAno(ano);
+                    String anoDigitado = sc.nextLine();
+                    int ano = Validador.validarAno(anoDigitado);
+
 
                     System.out.print("ISBN: ");
                     String isbn = sc.nextLine();
                     Validador.validarIsbn(isbn);
 
-                    Livro livro = new Livro(titulo, autor, ano, isbn);
+                    Livro livro = new Livro(titulo, autorStr, ano, isbn);
                     biblioteca.adicionarLivro(livro);
 
                     System.out.println("\nLivro cadastrado!");
@@ -80,7 +81,7 @@ public class Main {
                     List<Livro> resultados = biblioteca.buscarPorTitulo(tituloStr);
 
                     if (resultados.isEmpty()) {
-                        System.out.println("\nNenhum livro encontrado.\n");
+                        System.out.println("\nNenhum livro encontrado.\nRetornando ao menu...\n");
                     } else {
                         resultados.forEach(System.out::println);
                     }
@@ -89,8 +90,8 @@ public class Main {
 
                 
                 case 3 -> {
-                    System.out.print("\nDigite o(a) autor(a): ");
-                    String autorStr = sc.nextLine().trim();
+                    System.out.print("\nDigite o(a) autor(a):");
+                    String autorStr = sc.nextLine().trim().replaceAll("\\s+", " ");
 
                     try {
                          Validador.validarAutor(autorStr); 
@@ -103,7 +104,7 @@ public class Main {
                     List<Livro> resultados = biblioteca.buscarPorAutor(autorStr);
 
                     if (resultados.isEmpty()) {
-                        System.out.println("\nNenhum livro encontrado.\n");
+                        System.out.println("\nNenhum livro encontrado.\nRetornando ao menu...\n");
                     } else {
                         resultados.forEach(System.out::println);
                     }
@@ -111,22 +112,24 @@ public class Main {
                 }
 
                 
-                case 4 -> {
-                    System.out.print("\nDigite o ano: ");
-                    String anoStrBusca = sc.nextLine();
+               case 4 -> {
+                   System.out.print("\nDigite o ano: ");
+                 String anoStrBusca = sc.nextLine();
 
                     try {
-                        int buscaAno = Integer.parseInt(anoStrBusca.trim());
+                   // Validação centralizada
+                         int buscaAno = Validador.validarAno(anoStrBusca);
+
                         List<Livro> resultados = biblioteca.buscarPorAno(buscaAno);
 
-                        if (resultados.isEmpty()) {
-                            System.out.println("\nNenhum livro encontrado.\n");
-                        } else {
-                            resultados.forEach(System.out::println);
-                        }
+                    if (resultados.isEmpty()) {
+                         System.out.println("\nNenhum livro encontrado.\nRetornando ao menu...\n");
+                    } else {
+                          resultados.forEach(System.out::println);
+                    }
 
                     } catch (IllegalArgumentException e) {
-                        System.out.println("\n" + e.getMessage() + "\n");
+                      System.out.println("\n" + e.getMessage() + "\n");
                     }
 
                     pausa();
@@ -169,7 +172,7 @@ public class Main {
                     if (removido) {
                         System.out.println("\nLivro removido com sucesso!");
                     } else {
-                        System.out.println("\nLivro não encontrado.");
+                        System.out.println("\nLivro não encontrado.\nRetornando ao menu...\n");
                     }
                     pausa();
                 }
