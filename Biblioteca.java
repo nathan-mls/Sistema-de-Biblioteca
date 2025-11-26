@@ -90,7 +90,7 @@ public class Biblioteca {
 
     public void listarLivros() {
         if (livros.isEmpty()) {
-            System.out.println("Nenhum livro cadastrado.");
+            System.out.println("\nNenhum livro cadastrado.");
         } else {
             for (Livro livro : livros) {
                 System.out.println(livro);
