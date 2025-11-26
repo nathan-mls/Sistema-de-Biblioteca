@@ -4,7 +4,7 @@ import java.util.List;
 public class Biblioteca {
     private final List<Livro> livros = new ArrayList<>();
 
-   public void adicionarLivro(Livro livro) {
+    public void adicionarLivro(Livro livro) {
 
     for (Livro l : livros) {
         if (l.getIsbn().equals(livro.getIsbn())) {
@@ -13,7 +13,7 @@ public class Biblioteca {
         }
 
     livros.add(livro);
-}
+    }
 
 
     public List<Livro> buscarPorTitulo(String titulo) {
