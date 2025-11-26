@@ -48,7 +48,7 @@ O sistema foi implementado em Java, utilizando como estrutura principal uma list
 
 # 🛠️ Estrutura do projeto
 
-Biblioteca.java	-----> Gerencia a coleção de livros e as operações de busca/ordenação/remover
+Biblioteca.java	-----> Gerencia a coleção de livros e as operações de cadastro/busca/ordenação/remover
 
 Livro.java ----->	Representa a entidade livro
 
